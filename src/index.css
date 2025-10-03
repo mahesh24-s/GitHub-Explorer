@@ -1,0 +1,109 @@
+@import "tailwindcss";
+
+@theme{
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-card: hsl(var(--card));
+  --radius: var(--radius);
+  --gradient-primary: var(--gradient-primary);
+  --gradient-card: var(--gradient-card);
+  --shadow-glow: var(--shadow-glow);
+  --transition-smooth: var(--transition-smooth);
+
+
+/*  we can also use fixed hsl values like below instead of css variables
+  --color-primary: hsl(262,83%,58%);
+  --color-primary-foreground: hsl(210,40%,98%);
+  --color-secondary: hsl(217,33%,17%);
+  --color-secondary-foreground: hsl(210,40%,98%); 
+*/
+
+}
+
+@layer base {
+  * {
+    /* background: hsl(220 25% 8%); */
+    color: rgba(255, 255, 255, 1);
+  }
+
+  body {
+    /* @apply bg-background text-foreground; */
+    background: linear-gradient(135deg, hsl(220 25% 8%), hsl(220 30% 10%));
+    min-height: 100vh;
+  }
+}
+
+@layer base {
+  :root {
+    --background: 220 25% 8%;
+    --foreground: 210 40% 98%;
+
+    --card: 220 20% 12%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 220 20% 12%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 262,83%,58%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 217 33% 17%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 217 91% 60%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217 33% 20%;
+    --input: 217 33% 20%;
+    --ring: 262 83% 58%;
+
+    --radius: 0.75rem;
+
+    --gradient-primary: linear-gradient(135deg, hsl(262 83% 58%), hsl(217 91% 60%));
+    --gradient-card: linear-gradient(135deg, hsl(220 20% 12%), hsl(220 25% 15%));
+    --shadow-glow: 0 0 40px hsl(262 83% 58% / 0.3);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+
+@layer utilities {
+  .gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .card-hover {
+    transition: var(--transition-smooth);
+  }
+
+  .card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-glow);
+  }
+
+}
