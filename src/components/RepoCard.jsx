@@ -1,6 +1,7 @@
 import { Star, GitFork, ExternalLink, Circle } from "lucide-react";
 
 export const RepoCard = ({ name, description, stars, forks, language, url, updatedAt }) => {
+  // console.log("updatedAt: ",updatedAt);
 
   const formatDate = (dateString) => {
     const date = new Date(dateString);

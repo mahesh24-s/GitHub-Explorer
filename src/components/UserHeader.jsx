@@ -13,6 +13,7 @@ export const UserHeader = ({
   twitterUsername,
   followers,
   following,
+  githubLink
 }) => {
 
   const formatUrl = (url) => {
@@ -23,9 +24,14 @@ export const UserHeader = ({
   return (
     <div className="bg-card border border-border rounded-lg overflow-hidden">
       <div className="flex flex-col sm:flex-row items-start gap-6 p-6">
-        <div className="h-24 w-24 border-2 border-primary relative flex  shrink-0 overflow-hidden rounded-full">
-          <img src={avatarUrl} alt={username} className="aspect-square h-full w-full"  />
-          <div className="flex h-full w-full items-center justify-center rounded-full bg-muted">{username.slice(0, 2).toUpperCase()}</div> // to show initials if no image
+        <div className="flex flex-col space-y-2">
+          <div className="h-30 w-30 border-2 border-primary relative flex  shrink-0 overflow-hidden rounded-full">
+            <img src={avatarUrl} alt={username} className="aspect-square h-full w-full"  />
+            <div className="flex h-full w-full items-center justify-center rounded-full bg-muted">{username.slice(0, 2).toUpperCase()}</div> // to show initials if no image
+          </div>
+          <button className="h-10 px-4 bg-primary hover:bg-primary/90 rounded-lg text-primary-foreground">
+            <a href={githubLink} target="_blank">View on GitHub</a>
+          </button>
         </div>
         
         <div className="flex-1 w-full">

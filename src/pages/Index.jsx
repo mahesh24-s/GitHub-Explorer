@@ -14,7 +14,6 @@ const Index = () => {
     setIsLoading(true);
 
     try {
-      // Fetch user data
       const userResponse = await fetch(`https://api.github.com/users/${name.trim()}`);
 
       if (!userResponse.ok) {
@@ -34,8 +33,8 @@ const Index = () => {
       }
 
       const reposData = await reposResponse.json();
-      // console.log("printing repos data", reposData);
-      // console.log("printing user data", userData);
+      // console.log("printing repos data:", reposData);
+      // console.log("printing user data:", userData);
       setRepos(reposData);
     } catch (error) {
       console.log(error);
@@ -47,7 +46,9 @@ const Index = () => {
   }
 
   const fetchUserData = async (name) => {
-    if(name != undefined || name != null){
+    // console.log(name,typeof(name));
+
+    if(name != undefined){
       setUsername(name);
       getUserData(name);
       return ;
@@ -103,6 +104,7 @@ const Index = () => {
             twitterUsername={userData.twitter_username}
             followers={userData.followers}
             following={userData.following}
+            githubLink={userData.html_url}
           />
         )}
 
